@@ -4,11 +4,7 @@ class CalculadorCantoneiraTracionada(CalculadorBarraTracionada):
     
     
     @staticmethod
-    def largura_total(largura_abas: float, espessura: float) -> float:
-        largura = 2 * largura_abas - espessura
-        return largura
+    def largura_efetiva(largura: float, espessura: float) -> float:
+        largura_efetiva = 2 * largura - espessura
+        return largura_efetiva
     
-    @staticmethod
-    def gabarito_furacao_efetivo(gabarito_furacao: float, espessura: float) -> float:
-        gabarito_efetivo = 2 * gabarito_furacao - espessura
-        return gabarito_efetivo
