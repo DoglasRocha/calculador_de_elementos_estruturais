@@ -68,6 +68,9 @@ class CantoneiraTracionada:
         '''Esforço nominal'''
         self.esforco_nominal = CalculadorCantoneiraTracionada.esforco_nominal(self.nd)
         
+        '''Impressão dos resultados'''
+        print(self)
+        
     @staticmethod    
     def seleciona_menor_valor(*valores: float) -> float:
         '''Retorna o menor valor de uma série de valores passados.'''
@@ -87,43 +90,43 @@ class CantoneiraTracionada:
         
 {n}1) Larguras Efetivas e Área Bruta
     
-{n}Largura total efetiva (b):{_n} {self.largura_total_efetiva} cm
-{n}Largura efetiva do gabarito de furação (g):{_n} {self.largura_efetiva_ate_furos} cm
-{n}Área Bruta (Ag):{_n} {self.area_bruta} cm²
+{n}Largura total efetiva (b):{_n} {round(self.largura_total_efetiva, 6)} cm
+{n}Largura efetiva do gabarito de furação (g):{_n} {round(self.largura_efetiva_ate_furos, 6)} cm
+{n}Área Bruta (Ag):{_n} {round(self.area_bruta, 6)} cm²
 
 {n}2) Cálculo das áreas líquidas nas seções I e II
 
 {n}• Seção I (seção reta)
 
-{n}Largura Líquida (bn):{_n} {self.largura_liquida_1} cm
-{n}Área Líquida (An):{_n} {self.area_liquida_1} cm²
+{n}Largura Líquida (bn):{_n} {round(self.largura_liquida_1, 6)} cm
+{n}Área Líquida (An):{_n} {round(self.area_liquida_1, 6)} cm²
 
 {n}• Seção II (seção ziguezague)
 
-{n}Largura líquida (bn):{_n} {self.largura_liquida_2} cm
-{n}Área Líquida (An):{_n} {self.area_liquida_2} cm²
+{n}Largura líquida (bn):{_n} {round(self.largura_liquida_2, 6)} cm
+{n}Área Líquida (An):{_n} {round(self.area_liquida_2, 6)} cm²
 
-{n}• Seção Crítica:{_n} {self.secao_critica} cm²
+{n}• Seção Crítica:{_n} {round(self.secao_critica, 6)} cm²
 
 {n}3) Resistência da peça à tração
 
 {n}• Na seção bruta
 
-{n}Resistência da peça (ΦNn):{_n} {self.resistencia_bruta} N
+{n}Resistência da peça (ΦNn):{_n} {round(self.resistencia_bruta, 6)} N
 
 {n}• Na seção com furos
 
-{n}Resistência da peça (ΦNn):{_n} {self.resistencia_furos} N
+{n}Resistência da peça (ΦNn):{_n} {round(self.resistencia_furos, 6)} N
 
-{n}• Resistência da peça (ΦNn):{_n} {self.resistencia_peca} N
+{n}• Resistência da peça (ΦNn):{_n} {round(self.resistencia_peca, 6)} N
 
 {n}4) Maior esforço de cálculo suportado pela peça (Nd)
 
-{n}Nd:{_n} {self.nd} N
+{n}Nd:{_n} {round(self.nd, 6)} N
 
 {n}6) Maior esforço nominal suportado pela peça (N)
 
-{n}N:{_n} {self.esforco_nominal} N
+{n}N:{_n} {round(self.esforco_nominal, 6)} N
 
 
 
