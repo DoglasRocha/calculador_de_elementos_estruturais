@@ -1,4 +1,4 @@
-from input_normalizado import input_normalizado
+from .input_normalizado import input_normalizado
 
 
 class PegadorParafusada:

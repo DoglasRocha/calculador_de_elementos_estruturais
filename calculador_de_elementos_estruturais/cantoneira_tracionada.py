@@ -1,6 +1,6 @@
-from pegador_parafusada import PegadorParafusada
-from calculador_cantoneira_tracionada import CalculadorCantoneiraTracionada
-from informacoes import request_area_cantoneira, request_resistencia_chapas
+from .pegador_parafusada import PegadorParafusada
+from .calculador_cantoneira_tracionada import CalculadorCantoneiraTracionada
+from .informacoes import request_area_cantoneira, request_resistencia_chapas
 
 
 class CantoneiraTracionada:
@@ -74,4 +74,3 @@ class CantoneiraTracionada:
         
         return min(valores)
     
-print(CantoneiraTracionada().__dict__)
