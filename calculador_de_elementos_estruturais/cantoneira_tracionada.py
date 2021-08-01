@@ -74,3 +74,59 @@ class CantoneiraTracionada:
         
         return min(valores)
     
+    def __str__(self) -> str:
+        '''Método especial do Python, implementado para impressão de um objeto. Nesse caso,
+        irá imprimir todos os resultados dos cálculos efetuados.'''
+        
+        abre_negrito = '\033[1m'
+        fecha_negrito = '\033[0m'
+        n = abre_negrito
+        _n = fecha_negrito
+        
+        mensagem = f'''{n}  Cantoneira Tracionada
+        
+{n}1) Larguras Efetivas e Área Bruta
+    
+{n}Largura total efetiva (b):{_n} {self.largura_total_efetiva} cm
+{n}Largura efetiva do gabarito de furação (g):{_n} {self.largura_efetiva_ate_furos} cm
+{n}Área Bruta (Ag):{_n} {self.area_bruta} cm²
+
+{n}2) Cálculo das áreas líquidas nas seções I e II
+
+{n}• Seção I (seção reta)
+
+{n}Largura Líquida (bn):{_n} {self.largura_liquida_1} cm
+{n}Área Líquida (An):{_n} {self.area_liquida_1} cm²
+
+{n}• Seção II (seção ziguezague)
+
+{n}Largura líquida (bn):{_n} {self.largura_liquida_2} cm
+{n}Área Líquida (An):{_n} {self.area_liquida_2} cm²
+
+{n}• Seção Crítica:{_n} {self.secao_critica} cm²
+
+{n}3) Resistência da peça à tração
+
+{n}• Na seção bruta
+
+{n}Resistência da peça (ΦNn):{_n} {self.resistencia_bruta} N
+
+{n}• Na seção com furos
+
+{n}Resistência da peça (ΦNn):{_n} {self.resistencia_furos} N
+
+{n}• Resistência da peça (ΦNn):{_n} {self.resistencia_peca} N
+
+{n}4) Maior esforço de cálculo suportado pela peça (Nd)
+
+{n}Nd:{_n} {self.nd} N
+
+{n}6) Maior esforço nominal suportado pela peça (N)
+
+{n}N:{_n} {self.esforco_nominal} N
+
+
+
+'''
+    
+        return mensagem    
