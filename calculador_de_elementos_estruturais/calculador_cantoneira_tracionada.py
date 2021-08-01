@@ -1,4 +1,4 @@
-from calculador_barra_tracionada import CalculadorBarraTracionada
+from .calculador_barra_tracionada import CalculadorBarraTracionada
 
 class CalculadorCantoneiraTracionada(CalculadorBarraTracionada):
     
