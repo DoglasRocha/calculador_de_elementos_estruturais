@@ -81,7 +81,7 @@ def request_area_cantoneira(comprimento: float, espessura: float) -> float:
                                               12.7: c_12_7,
                                               15.24: c_15_24}
     
-    espessuras_selecionadas = comprimentos_e_espessuras[comprimentos_e_espessuras]
+    espessuras_selecionadas = comprimentos_e_espessuras[comprimento]
     area_bruta = espessuras_selecionadas[espessura]
     
     return area_bruta
