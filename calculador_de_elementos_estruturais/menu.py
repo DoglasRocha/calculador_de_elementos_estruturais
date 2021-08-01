@@ -1,3 +1,4 @@
+from calculador_de_elementos_estruturais.cantoneira_tracionada import CantoneiraTracionada
 from .viga_de_madeira import VigaDeMadeira
 from .pilar_de_madeira import PilarDeMadeira
 from .enunciado_pv import Enunciado
@@ -45,6 +46,8 @@ class MenuPrincipal:
                     LigacaoParafusada()
                 elif 'NORMAL' in enunciado:
                     BarraTracionada()
+                elif 'COM OUTRA CANTONEIRA' in enunciado:
+                    CantoneiraTracionada()
                 else:
                     MenuPrincipal.seletor_manual()
             else:
@@ -59,6 +62,7 @@ class MenuPrincipal:
                 (3) Ligação Corte Duplo
                 (4) Ligação Parafusada
                 (5) Barra Tracionada
+                (6) Cantoneira Tracionada
             
                  '''
         numero_elemento = input(mensagem)
@@ -66,7 +70,8 @@ class MenuPrincipal:
                               '2': VigaDeMadeira,
                               '3': LigacaoCorteDuplo,
                               '4': LigacaoParafusada,
-                              '5': BarraTracionada}
+                              '5': BarraTracionada,
+                              '6': CantoneiraTracionada}
         
         if numero_elemento not in todos_os_elementos.keys():
             print('Digite um valor válido.')

@@ -1,5 +1,5 @@
 from .pegador_parafusada import PegadorParafusada
-from .calculador_parafusada import CalculadorBarraTracionada
+from .calculador_barra_tracionada import CalculadorBarraTracionada
 from .informacoes import request_resistencia_chapas
 
 class BarraTracionada:
