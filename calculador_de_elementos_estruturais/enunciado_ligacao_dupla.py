@@ -74,7 +74,7 @@ class EnunciadoLigacaoDupla:
     @staticmethod
     def acha_escoamento_aco(enunciado):
         try:
-            padrao_1 = 'FYK = 700'
+            padrao_1 = 'FYK = [0-9]{3}'
         
             escoamento_aco = re.search(padrao_1, enunciado).group()[-3:]
             return escoamento_aco
@@ -130,11 +130,9 @@ class EnunciadoLigacaoDupla:
     @staticmethod
     def acha_diametro_pinos(enunciado):
         try:
-            padrao_1 = 'PINOS DE [0-9]{1,2}'
+            padrao_1 = 'PINOS DE [0-9]{1,}'
             
             diam_pinos = re.search(padrao_1, enunciado).group()[-2:].strip()
             return diam_pinos
         except:
             return None
-        
-        

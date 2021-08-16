@@ -1,39 +1,41 @@
-from .pegador_ligacao import PegadorLigacao
-from .calculador_ligacao import CalculadorLigacao
+from .pegador_ligacao_dupla import PegadorLigacaoDupla
+from .calculador_ligacao_dupla import CalculadorLigacaoDupla
 
 class LigacaoCorteDuplo:
+    
+    
     def __init__(self, enunciado=None):
-        self.classe_central = PegadorLigacao.pega_classe_central(enunciado)
-        self.espessura_central = PegadorLigacao.pega_espessura_central(enunciado)
-        self.classe_lateral = PegadorLigacao.pega_classe_lateral(enunciado)
-        self.espessura_lateral = PegadorLigacao.pega_espessura_lateral(enunciado)
-        self.escoamento_aco = PegadorLigacao.pega_escoamento_aco(enunciado)
-        self.duracao = PegadorLigacao.pega_duracao(enunciado)
-        self.classe_umidade = PegadorLigacao.pega_classe_umidade(enunciado)
-        self.categoria = PegadorLigacao.pega_categoria(enunciado)
-        self.quantidade_pinos = PegadorLigacao.pega_quantidade_pinos(enunciado)
-        self.diametro_pinos = PegadorLigacao.pega_diametro_pinos(enunciado)
-        self.fc0k_central = PegadorLigacao.pega_Fc0k(self.classe_central)
-        self.fc0k_lateral = PegadorLigacao.pega_Fc0k(self.classe_lateral)
-        self.kmods = PegadorLigacao.pega_kmods(self.duracao, self.classe_umidade, self.categoria)
+        self.classe_central = PegadorLigacaoDupla.pega_classe_central(enunciado)
+        self.espessura_central = PegadorLigacaoDupla.pega_espessura_central(enunciado)
+        self.classe_lateral = PegadorLigacaoDupla.pega_classe_lateral(enunciado)
+        self.espessura_lateral = PegadorLigacaoDupla.pega_espessura_lateral(enunciado)
+        self.escoamento_aco = PegadorLigacaoDupla.pega_escoamento_aco(enunciado)
+        self.duracao = PegadorLigacaoDupla.pega_duracao(enunciado)
+        self.classe_umidade = PegadorLigacaoDupla.pega_classe_umidade(enunciado)
+        self.categoria = PegadorLigacaoDupla.pega_categoria(enunciado)
+        self.quantidade_pinos = PegadorLigacaoDupla.pega_quantidade_pinos(enunciado)
+        self.diametro_pinos = PegadorLigacaoDupla.pega_diametro_pinos(enunciado)
+        self.fc0k_central = PegadorLigacaoDupla.pega_Fc0k(self.classe_central)
+        self.fc0k_lateral = PegadorLigacaoDupla.pega_Fc0k(self.classe_lateral)
+        self.kmods = PegadorLigacaoDupla.pega_kmods(self.duracao, self.classe_umidade, self.categoria)
         
-        self.fyd = CalculadorLigacao.calcula_fyd(self.escoamento_aco)
-        self.kmod = CalculadorLigacao.calcula_kmod(self.kmods)
-        self.fc0d_central = CalculadorLigacao.calcula_fc0d(self.fc0k_central, self.kmod)
-        self.fc0d_lateral = CalculadorLigacao.calcula_fc0d(self.fc0k_lateral, self.kmod)
-        self.blim_central = CalculadorLigacao.calcula_blim(self.fyd, self.fc0d_central)
-        self.blim_lateral = CalculadorLigacao.calcula_blim(self.fyd, self.fc0d_lateral)
+        self.fyd = CalculadorLigacaoDupla.calcula_fyd(self.escoamento_aco)
+        self.kmod = CalculadorLigacaoDupla.calcula_kmod(self.kmods)
+        self.fc0d_central = CalculadorLigacaoDupla.calcula_fc0d(self.fc0k_central, self.kmod)
+        self.fc0d_lateral = CalculadorLigacaoDupla.calcula_fc0d(self.fc0k_lateral, self.kmod)
+        self.blim_central = CalculadorLigacaoDupla.calcula_blim(self.fyd, self.fc0d_central)
+        self.blim_lateral = CalculadorLigacaoDupla.calcula_blim(self.fyd, self.fc0d_lateral)
         self.t_lateral = self.espessura_lateral
-        self.t_central = CalculadorLigacao.calcula_t_central(self.espessura_central)
+        self.t_central = CalculadorLigacaoDupla.calcula_t_central(self.espessura_central)
         self.d = self.diametro_pinos
-        self.bef_central = CalculadorLigacao.calcula_bef(self.t_central, self.d)
-        self.bef_lateral = CalculadorLigacao.calcula_bef(self.t_lateral, self.d)
-        self.rvd_1_central = CalculadorLigacao.calcula_rvd_1(self.bef_lateral, self.blim_central, self.t_lateral, 
+        self.bef_central = CalculadorLigacaoDupla.calcula_bef(self.t_central, self.d)
+        self.bef_lateral = CalculadorLigacaoDupla.calcula_bef(self.t_lateral, self.d)
+        self.rvd_1_central = CalculadorLigacaoDupla.calcula_rvd_1(self.bef_lateral, self.blim_central, self.t_lateral, 
                                                              self.d, self.fc0d_central, self.fyd)
-        self.rvd_1_lateral = CalculadorLigacao.calcula_rvd_1(self.bef_central, self.blim_lateral, self.t_central, 
+        self.rvd_1_lateral = CalculadorLigacaoDupla.calcula_rvd_1(self.bef_central, self.blim_lateral, self.t_central, 
                                                              self.d, self.fc0d_lateral, self.fyd)
-        self.r_ligacao_central = CalculadorLigacao.calcula_r_ligacao(self.rvd_1_central)
-        self.r_ligacao_lateral = CalculadorLigacao.calcula_r_ligacao(self.rvd_1_lateral)
+        self.r_ligacao_central = CalculadorLigacaoDupla.calcula_r_ligacao(self.quantidade_pinos, self.rvd_1_central)
+        self.r_ligacao_lateral = CalculadorLigacaoDupla.calcula_r_ligacao(self.quantidade_pinos, self.rvd_1_lateral)
         self.fd = self.faz_verificacao()
         print(self)
         
