@@ -63,7 +63,7 @@ def request_resistencia_chapas(especificacao: str) -> tuple:
     return fy, fu
 
 def request_area_cantoneira(comprimento: float, espessura: float) -> float:
-	espessura *= 10
+    espessura *= 10
 
     c_7_62 = {0.476: 7.03, 0.635: 9.29, 0.794: 11.48,
               0.952: 13.61, 1.111: 15.67, 1.27: 17.74}
