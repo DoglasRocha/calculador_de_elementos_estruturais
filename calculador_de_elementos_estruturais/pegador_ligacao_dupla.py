@@ -1,4 +1,5 @@
 from .enunciado_ligacao_dupla import EnunciadoLigacaoDupla
+from .input_normalizado import input_normalizado
 from .informacoes import tabela_classe, informacoes_kmod1, duracoes, informacoes_kmod2, informacoes_kmod3, categorias
 
 class PegadorLigacaoDupla:
@@ -162,7 +163,7 @@ class PegadorLigacaoDupla:
         if diametro_str is not None:
             diametro = float(diametro_str)
         else:
-            diametro = float(input('Informe o diâmetro dos pinos da ligação. '))
+            diametro = float(input_normalizado('Informe o diâmetro dos pinos da ligação. '))
             
         return diametro
     
