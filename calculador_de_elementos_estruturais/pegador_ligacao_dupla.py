@@ -123,9 +123,9 @@ class PegadorLigacaoDupla:
     
     @staticmethod
     def pega_categoria(enunciado):
-        categoria_str = EnunciadoLigacaoDupla.acha_categoria(enunciado).strip()
         
-        if categoria_str is not None:
+        if enunciado is not None:
+            categoria_str = EnunciadoLigacaoDupla.acha_categoria(enunciado).strip()
             if categoria_str == 'PRIMEIRA':
                 categoria = 1
             elif categoria_str == 'SEGUNDA':
