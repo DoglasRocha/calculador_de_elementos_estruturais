@@ -1,0 +1,12 @@
+__pycache__
+.venv
+.vscode
+calculador_de_elementos_estruturais.egg-info
+dist
+LICENSE
+setup.py
+versao.txt
+versionador.py
+upload.sh
+
+git push origin master

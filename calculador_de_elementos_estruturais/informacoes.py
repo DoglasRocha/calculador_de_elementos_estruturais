@@ -63,6 +63,8 @@ def request_resistencia_chapas(especificacao: str) -> tuple:
     return fy, fu
 
 def request_area_cantoneira(comprimento: float, espessura: float) -> float:
+	espessura *= 10
+
     c_7_62 = {0.476: 7.03, 0.635: 9.29, 0.794: 11.48,
               0.952: 13.61, 1.111: 15.67, 1.27: 17.74}
      
@@ -77,9 +79,9 @@ def request_area_cantoneira(comprimento: float, espessura: float) -> float:
                1.905: 54.44, 2.222: 62.76}
     
     comprimentos_e_espessuras = {7.62: c_7_62,
-                                              10.16: c_10_16,
-                                              12.7: c_12_7,
-                                              15.24: c_15_24}
+                                 10.16: c_10_16,
+                                 12.7: c_12_7,
+                                 15.24: c_15_24}
     
     espessuras_selecionadas = comprimentos_e_espessuras[comprimento]
     area_bruta = espessuras_selecionadas[espessura]
